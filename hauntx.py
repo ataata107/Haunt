@@ -32,10 +32,10 @@ while 1:
 
         if(a > CENTER ):
             print("<<<<<<<<<")
-            val-=1
+            val-=0.5
         elif(a< CENTER):
             print(">>>>>>>>>")
-            val+=1
+            val+=0.5
     if(val>180 or val<0):
         val=90
     
