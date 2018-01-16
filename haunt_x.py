@@ -1,18 +1,24 @@
+from __future__ import print_function
+from imutils.video import WebcamVideoStream
+from imutils.video import FPS
+from math import degrees
 import numpy as np
+import imutils
 import cv2
 import serial
-ser = serial.Serial('COM10',9600)
+#ser = serial.Serial('COM10',9600)
 # multiple cascades: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
 face_cascade = cv2.CascadeClassifier('C:\\Users\\ataata107\\Downloads\\opencv\\build\\etc\\haarcascades\\haarcascade_frontalface_default.xml')
-cap = cv2.VideoCapture(1)
+#cap = cv2.VideoCapture(0)
+cap = WebcamVideoStream(src=0).start()
 val=90
 Center_x=0
 while 1:
     center_x=[]
     center_y=[]
-    ret, img = cap.read()
+    img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     CENTER=img.shape[0]/2
@@ -39,7 +45,7 @@ while 1:
     if(val>180 or val<0):
         val=90
     
-    ser.write("%s\n"%val)    
+    #ser.write("%s\n"%val)    
     print("val",val)    
     
     cv2.imshow('img',img)
