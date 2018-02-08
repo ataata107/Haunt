@@ -1,1 +1,4 @@
 NA
+/dev/ttyACM0 pi2
+killall -9 motion
+ls /dev/tty* - for checking serial port
