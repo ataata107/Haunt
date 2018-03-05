@@ -39,8 +39,8 @@ while 1:
         for (x,y,w,h) in faces:
             cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
             
-            center_x.append(x)
-            center_y.append(y)
+            center_x.append(x+w/2.0)
+            center_y.append(y+h/2.0)
         print(len(center_x))
         if(len(center_x)>0):
             a=center_x[0]
