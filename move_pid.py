@@ -29,8 +29,9 @@ while 1:
     i+=1
     center_x=[]
     center_y=[]
-    ret, img = cap.read()
-    if i%10 ==0:
+    ret,img = cap.read()
+    img = cv2.resize(img, (120, 140))
+    if i%1 ==0:
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         CENTER=img.shape[0]/2
